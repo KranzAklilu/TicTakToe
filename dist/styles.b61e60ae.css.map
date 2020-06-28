@@ -1,0 +1,1 @@
+{"version":3,"sources":["css\\styles.scss"],"names":[],"mappings":"AAAA,IAAI,AAAC,CACH,gBAAgB,CAAE,KAAK,CACxB,AACD,KAAK,AAAC,CACJ,KAAK,CAAE,KAAK,CACb","file":"styles.b61e60ae.css","sourceRoot":"..","sourcesContent":["body {\r\n  background-color: black;\r\n}\r\n.text {\r\n  color: white;\r\n}\r\n"]}
