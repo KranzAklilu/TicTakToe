@@ -1,0 +1,11 @@
+{
+  "name": "TicTakToe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/KranzAklilu/TicTakToe.git",
+  "author": "KranzAklilu <kranua.cr7@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
