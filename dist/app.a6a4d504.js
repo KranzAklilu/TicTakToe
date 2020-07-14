@@ -118,8 +118,95 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/app.js":[function(require,module,exports) {
+var _view;
 
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var view = (_view = {
+  wrapper: document.querySelector(".wrapper"),
+  items: document.querySelectorAll(".wrapper__item"),
+  sides: document.querySelector("#select"),
+  dataCell: document.querySelectorAll("[data-cell]"),
+  winningPage: document.querySelector(".winner-page"),
+  restart: document.querySelector(".winner-page--link"),
+  winner: document.querySelector("#winner"),
+  tiePage: document.querySelector(".tie-page")
+}, _defineProperty(_view, "restart", document.querySelector(".tie-page--link")), _defineProperty(_view, "circle", "O"), _defineProperty(_view, "x", "X"), _view);
+var combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6], [0, 3, 6], [1, 4, 7], [2, 5, 8]];
+var end = 8;
+var start = 0;
+var currentClass;
+view.items.forEach(function (item) {
+  item.addEventListener("click", function (e) {
+    e.preventDefault();
+    currentClass = addClasses();
+    disableSelect();
+    generateHTML(e.target, assignClass(e.target));
+    currentClass = swapTurns();
+    var classList = e.target.innerHTML;
+    winner(classList);
+  }, {
+    once: true
+  });
+});
+
+function assignClass(target) {
+  var toggle = currentClass ? view.circle : view.x;
+  target.classList.add(toggle);
+  return toggle;
+}
+
+function generateHTML(target, html) {
+  target.innerHTML = html;
+}
+
+function swapTurns() {
+  return currentClass != currentClass;
+}
+
+function addClasses() {
+  if (view.sides.options.selectedIndex === 0) {
+    view.sides.options.selectedIndex = 1;
+    currentClass = false;
+  } else if (view.sides.options.selectedIndex === 1) {
+    view.sides.options.selectedIndex = 0;
+    currentClass = true;
+  }
+
+  return currentClass;
+}
+
+function winner(classList) {
+  if (checkWinner(classList)) {
+    view.winningPage.style.visibility = "visible";
+    view.winner.innerHTML = "Player ".concat(classList);
+    view.restart.addEventListener("click", function () {
+      view.winningPage.style.display = "none";
+    });
+  } else {
+    if (start === end) {
+      view.tiePage.style.visibility = "visible";
+      view.restart.addEventListener("click", function () {
+        view.winningPage.style.display = "none";
+      });
+    }
+
+    start++;
+  }
+}
+
+function checkWinner(classList) {
+  return combinations.some(function (combination) {
+    return combination.every(function (index) {
+      return view.dataCell[index].classList.contains(classList);
+    });
+  });
+}
+
+function disableSelect() {
+  view.sides.disabled = true;
+}
+},{}],"../../../../Users/Vanua/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -147,7 +234,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50291" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56498" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -323,5 +410,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/app.js"], null)
+},{}]},{},["../../../../Users/Vanua/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/app.js"], null)
 //# sourceMappingURL=/app.a6a4d504.js.map

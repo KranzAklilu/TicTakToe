@@ -7,7 +7,38 @@
     <link rel="stylesheet" href="/styles.5c32a3d8.css">
   <script src="/styles.5c32a3d8.js"></script></head>
   <body>
-    <h1 class="text">TEXT</h1>
+    <div id="App">
+      <h1 class="header">Tic-Tak-Toe</h1>
+      <div class="sides">
+        <p>PLease Select Sides</p>
+        <select name="" id="select">
+          <option value="X">X</option>
+          <option value="O">O</option>
+        </select>
+      </div>
+      <div class="wrapper">
+        <div class="wrapper__item wrapper__item--top wrapper__item--left" data-cell=""></div>
+        <div class="wrapper__item wrapper__item--top" data-cell=""></div>
+        <div class="wrapper__item wrapper__item--top wrapper__item--right" data-cell=""></div>
+        <div class="wrapper__item wrapper__item--left" data-cell=""></div>
+        <div class="wrapper__item" data-cell=""></div>
+        <div class="wrapper__item wrapper__item--right" data-cell=""></div>
+        <div class="wrapper__item wrapper__item--bottom wrapper__item--left" data-cell=""></div>
+        <div class="wrapper__item wrapper__item--bottom" data-cell=""></div>
+        <div class="wrapper__item wrapper__item--bottom wrapper__item--right" data-cell=""></div>
+      </div>
+      <div class="winner-page">
+        <span id="winner"></span>
+        <h1>Is the Winner</h1>
+        <p>Or atlease for now...</p>
+        <a href="" class="winner-page--link">Restart?</a>
+      </div>
+      <div class="tie-page">
+        <h1>Tie!</h1>
+        <a href="" class="tie-page--link">Restart?</a>
+      </div>
+    </div>
+
     <script src="/app.a6a4d504.js"></script>
   </body>
 </html>
